@@ -46,6 +46,28 @@ GROUP by hour_per_week
 SELECT Lecturers.name, hour_per_week  from Lecturers
 INNER JOIN Courses on Lecturers.lecturer_id = Courses.lecturer_id
 WHERE hour_per_week = 8
+Targil 2--
+15-
+SELECT Employees.name,Departments.* from Employees
+INNER JOIN Departments on Employees.department_id = Departments.department_id
+16-
+SELECT Employees.name , Departments.name from Employees
+LEFT JOIN Departments on Employees.department_id = Departments.department_id
+17-
+SELECT Employees.name,Departments.name FROM Employees
+FULL OUTER JOIN Departments on Employees.department_id = Departments.department_id
+WHERE Employees.name is null or Departments.name is NULL
+18-
+SELECT count(name) as employ_count FROM Employees
+19-
+SELECT avg(salary) from Employees
+20-
+SELECT Employees.name, max(Employees.salary),Departments.name FROM Employees
+INNER JOIN Departments on Employees.department_id = Departments.department_id
+GROUP by Departments.name
+-- WHERE Employees.salary = (SELECT max(salary) from Employees); i try this -error, so i try max in 1 line
+
+
 
 
 
