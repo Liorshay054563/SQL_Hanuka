@@ -1,0 +1,55 @@
+Targil 1
+1-
+SELECT * FROM Courses
+INNER JOIN Lecturers on Courses.lecturer_id = Lecturers.lecturer_id
+2-
+SELECT * FROM Courses
+LEFT JOIN Lecturers on Courses.lecturer_id = Lecturers.lecturer_id
+3-
+SELECT * FROM Lecturers
+RIGHT JOIN Courses on Lecturers.lecturer_id = Courses.course_id
+4-
+SELECT * FROM Courses
+FULL OUTER JOIN Lecturers on Courses.lecturer_id = Lecturers.lecturer_id
+WHERE Courses.course_id is NULL or Lecturers.lecturer_id is NULL
+5-
+SELECT * FROM Lecturers
+FULL OUTER JOIN Courses on Lecturers.lecturer_id = Courses.lecturer_id
+WHERE Courses.course_id is NULL or Lecturers.lecturer_id is NULL
+6-
+SELECT * FROM Courses
+FULL OUTER JOIN Lecturers on Courses.lecturer_id = Lecturers.lecturer_id
+7-
+SELECT * FROM Lecturers
+FULL OUTER JOIN Courses on Lecturers.lecturer_id = Courses.lecturer_id
+WHERE Courses.course_id is NULL or Lecturers.lecturer_id is NULL
+8-
+SELECT name FROM Lecturers
+WHERE name like "%i%"
+9-
+SELECT count(name) as num_of_teachers from Lecturers
+10-
+SELECT count(name) as Courses_num FROM Courses
+11-
+ALTER TABLE Courses
+ADD COLUMN "hour_per_week"
+UPDATE Courses SET hour_per_week = 4 
+where course_id <= 4
+UPDATE Courses SET hour_per_week = 6 
+where course_id > 4 AND course_id < 8
+UPDATE Courses SET hour_per_week = 8 
+where course_id >= 8 
+12-
+SELECT hour_per_week, count(name) as Courses_count from Courses
+GROUP by hour_per_week
+13-
+SELECT Lecturers.name, hour_per_week  from Lecturers
+INNER JOIN Courses on Lecturers.lecturer_id = Courses.lecturer_id
+WHERE hour_per_week = 8
+
+
+
+
+
+
+
