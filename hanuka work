@@ -1,9 +1,9 @@
 Targil 1
 1-
-SELECT * FROM Courses
+SELECT Courses.name as cours_name , Lecturers.name as teacher FROM Courses
 INNER JOIN Lecturers on Courses.lecturer_id = Lecturers.lecturer_id
 2-
-SELECT * FROM Courses
+SELECT Courses.name as cours_name , Lecturers.name as teacher FROM Courses
 LEFT JOIN Lecturers on Courses.lecturer_id = Lecturers.lecturer_id
 3-
 SELECT * FROM Lecturers
@@ -46,6 +46,9 @@ GROUP by hour_per_week
 SELECT Lecturers.name, hour_per_week  from Lecturers
 INNER JOIN Courses on Lecturers.lecturer_id = Courses.lecturer_id
 WHERE hour_per_week = 8
+14-
+DELETE from Courses
+WHERE hour_per_week = 4
 Targil 2--
 15-
 SELECT Employees.name,Departments.* from Employees
