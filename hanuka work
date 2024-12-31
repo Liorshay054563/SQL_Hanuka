@@ -63,12 +63,21 @@ WHERE Employees.name is null or Departments.name is NULL
 18-
 SELECT count(name) as employ_count FROM Employees
 19-
-SELECT avg(salary) from Employees
+SELECT round(avg(salary)) from Employees
 20-
 SELECT Employees.name, max(Employees.salary),Departments.name FROM Employees
 INNER JOIN Departments on Employees.department_id = Departments.department_id
 GROUP by Departments.name
 -- WHERE Employees.salary = (SELECT max(salary) from Employees); i try this -error, so i try max in 1 line
+21-
+SELECT Employees.name, Employees.seniority, Departments.* FROM Employees
+INNER JOIN Departments on Employees.department_id = Departments.department_id
+ORDER by Employees.seniority ASC
+22-
+SELECT Employees.seniority, avg(Employees.salary), Departments.* FROM Employees
+INNER JOIN Departments on Employees.department_id = Departments.department_id
+GROUP by Employees.seniority 
+
 
 
 
